@@ -1,0 +1,4 @@
+﻿kafka-python
+fastapi
+uvicorn
+boto3

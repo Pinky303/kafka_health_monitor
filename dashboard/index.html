@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head><title>ICU Dashboard</title></head>
+<body>
+<h1>Patient Vitals</h1>
+<ul id="vitals"></ul>
+<script>
+let ws = new WebSocket("ws://localhost:8000/ws");
+ws.onmessage = (event) => {
+  let data = JSON.parse(event.data);
+  let li = document.createElement("li");
+  li.textContent = `${data.patient_id}: HR=${data.heart_rate}, BP=${data.bp}`;
+  document.getElementById("vitals").appendChild(li);
+};
+</script>
+</body>
+</html>
